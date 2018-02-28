@@ -21,21 +21,22 @@ class Ball{
             this.GreatBall();
         }
 
-        if(ballCommand.e:wquals("UltraBall")){
+        if(ballCommand.equals("UltraBall")){
             this.UltraBall();            
         }
     }
 
-    private void PokeBall(){
-        
+    private double PokeBall(){
+        return opporunity = 0.8;
     }
 
-    private void GreatBall(){
+    private double GreatBall(){
+	return opporunity = 0.9;
 
     }
 
-    private void UltraBall(){
-
+    private double UltraBall(){
+	return opporunity = 1.0;
     }
     
 

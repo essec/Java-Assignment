@@ -9,7 +9,7 @@ class CommandParser{
 	private String pokemonType;
 	private float pokemonWeight;
 	private float pokemonStepLength;
-
+	private Forest forest;
 
 	public CommandParser(PokemonFarm pokemonFarm){
 		this.pokemonFarm = pokemonFarm;
@@ -39,8 +39,8 @@ class CommandParser{
 				this.walkPokemons();
 			else if(command.equals("remove"))
 				this.removePokemon();
-		//	else if(command.equals("catch"))
-		//		this.catchPokemon();
+			else if(command.equals("forest"))
+				this.goForest();
 		}
 	}
 
@@ -104,6 +104,14 @@ class CommandParser{
 		System.out.print("Which pokemon do you want to remove? ");
 		pokemonName = this.commandScanner.next();
 		this.pokemonFarm.remove(pokemonName);
+	}
+
+	private void goForest(){
+		System.out.println("Welcome to Forest");
+		System.out.println("=================================================");
+		System.out.println("Found Pokemon!!!!");
+		
+
 	}
 
 }
