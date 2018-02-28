@@ -11,15 +11,14 @@ class Pokemon{
 	Random rnd = new Random();
 
 	public Pokemon(String name,
-			float stepLength,
 			float gainingWeightStep,
 			String[] types){
 		this.name = name;
-		this.weight = rnd.nextInt(100)+1
-		this.stepLength = rnd.nextFloat(1)+0.1
+		this.weight = rnd.nextInt(100)+1;
+		this.stepLength = (float)(rnd.nextInt(1)+0.1);
 		this.gainingWeightStep = gainingWeightStep;
 		step = 0;
-		mood = rnd.nextFloat(1);
+		mood = (float)rnd.nextInt(1);
 
 		if(types == null)
 			this.types = new String[] {"normal"};
