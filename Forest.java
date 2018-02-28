@@ -2,11 +2,14 @@ import java.util.*;
 
 class Forest{
 	Random random = new Random();
-	Scaner scaner = new Scanner(System.in);
+	private Bag bag;
 	private Pokemon wildPokemon;
 	private Ball ball;
-	private double mood
+	private double mood;
+	private String name;
+
 	public Forest(){
+		bag = new Bag();
 	}
 	
 	public void pokemonFound(){
@@ -19,12 +22,35 @@ class Forest{
 		else if(pokemonRand == 2)
 			wildPokemon = new Swinub("Wild Swinub");
 		
+		mood = (random.nextInt(10)+1) /10.0;
 		
 		System.out.println("Found " + wildPokemon.getName() + "!!");
 	}
 
 	public void catchPokemon(){
-		mood += 0.05;
 		
+		mood += 0.05;
+		ball = new Ball(random.nextInt(3));
+		System.out.println(("Throw the ") + ball.getName());
+		
+		if(catchSuccess()){
+			System.out.println("Gotcha! You got " + wildPokemon.getName());
+			bag.add(wildPokemon);
+		}
+		    			    
+		else
+		    System.out.println("It break free!");
+		
+	}
+
+	public boolean catchSuccess(){
+		if((this.mood * (ball.getOppotunity())) > 0.5)
+			return true;
+		else
+			return false;
+	}
+
+	public Pokemon gotPokemon(){
+		return wildPokemon;
 	}
 }

@@ -10,8 +10,10 @@ class CommandParser{
 	private float pokemonWeight;
 	private float pokemonStepLength;
 	private Forest forest;
+	private Bag bag;
 
-	public CommandParser(PokemonFarm pokemonFarm){
+	public CommandParser(PokemonFarm pokemonFarm, Bag bag){
+		
 		this.pokemonFarm = pokemonFarm;
 		commandScanner = new Scanner(System.in);
 		isRunning = false;
@@ -41,6 +43,7 @@ class CommandParser{
 				this.removePokemon();
 			else if(command.equals("forest"))
 				this.goForest();
+
 		}
 	}
 
@@ -50,23 +53,19 @@ class CommandParser{
 		pokemonType = commandScanner.nextLine();
 		System.out.print("Name: ");
 		pokemonName = commandScanner.nextLine();
-		System.out.print("Weight: ");
-		pokemonWeight = commandScanner.nextFloat();
-		System.out.print("Step Length: ");
-		pokemonStepLength = commandScanner.nextFloat();
 
 		if(pokemonType.equals("Vulpix")){
-			Vulpix vulpix = new Vulpix(pokemonName, pokemonWeight, pokemonStepLength);
+			Vulpix vulpix = new Vulpix(pokemonName);
 			pokemonFarm.addPokemon(vulpix);
 		}
 
 		if(pokemonType.equals("Pikachu")){
-			Pikachu pikachu = new Pikachu(pokemonName, pokemonWeight, pokemonStepLength);
+			Pikachu pikachu = new Pikachu(pokemonName);
 			pokemonFarm.addPokemon(pikachu);
 		}
 
 		if(pokemonType.equals("Swinub")){
-			Swinub swinub = new Swinub(pokemonName, pokemonWeight, pokemonStepLength);
+			Swinub swinub = new Swinub(pokemonName);
 			pokemonFarm.addPokemon(swinub);
 		}
 	}
@@ -107,11 +106,32 @@ class CommandParser{
 	}
 
 	private void goForest(){
+		bag = new Bag();
+		String choice;
 		System.out.println("Welcome to Forest");
 		System.out.println("=================================================");
-		System.out.println("Found Pokemon!!!!");
-		
+		forest = new Forest();
 
-	}
+		do{
+		forest.pokemonFound();
+		System.out.print("Do you want to catch it? ");
+		choice = this.commandScanner.next();
+		if(choice.equals("yes"))
+			forest.catchPokemon();
+		else if(choice.equals("No"))
+			forest.pokemonFound();
+		System.out.print("Want to go Home? ");
+		choice = this.commandScanner.next();
+	    } while(!(choice.equals("goHome")));
+
+
+
+		pokemonFarm.push(bag.getPokemon());
+		System.out.println("Welcome Home!");
+
+		}
+	
+
+
 
 }

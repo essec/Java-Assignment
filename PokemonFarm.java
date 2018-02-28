@@ -43,6 +43,13 @@ class PokemonFarm{
 				for(int i = 0 ; i<step ; i++)
 					pokemon.walk();
 	}
+
+	public void push(ArrayList<Pokemon> fromBag){
+		for(Pokemon pokemon: fromBag){
+			addPokemon(pokemon);
+		System.out.print("Add Pokemon to Fram");
+		}
+	}
 	
 	public void remove(String pokemonName){
 		for(Pokemon pokemon : pokemons)
