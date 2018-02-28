@@ -1,43 +1,35 @@
 import java.util.*;
 
 class Ball{
-    private Scanner ballScanner;
-    private double opporunity;
+    private double oppotunity;
+    private String name = "";
 
-    public Ball(){
-        ballScanner = new Scanner(System.in);
-    }
+    public Ball(int ball){
 
-    public void chooseBall(){
-        String ballCommand;
-        ballCommand = ballScanner.next(); 
-        System.out.println("Which Ball you want? ");
-
-        if(ballCommand.equals("PokeBall")){
-            this.PokeBall();
+        if(ball == 0){
+	    this.name = "PokeBall";
+	    this.oppotunity = 0.8;
         }
 
-        if(ballCommand.equals("GreatBall")){
-            this.GreatBall();
+	else if(ball == 1){
+	    this.name = "GreatBall";
+	    this.oppotunity = 0.9;
         }
 
-        if(ballCommand.equals("UltraBall")){
-            this.UltraBall();            
+	else if(ball == 2){
+            this.name = "UltraBall";
+	    this.oppotunity = 1.0;
+
         }
     }
 
-    private double PokeBall(){
-        return opporunity = 0.8;
+    public String getName(){
+        return this.name;	
     }
 
-    private double GreatBall(){
-	return opporunity = 0.9;
-
+    public double getOppotunity(){
+	return this.oppotunity;
     }
 
-    private double UltraBall(){
-	return opporunity = 1.0;
-    }
-    
 
 }

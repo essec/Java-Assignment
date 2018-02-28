@@ -7,7 +7,6 @@ class Pokemon{
 	private int step;
 	private float gainingWeightStep;
 	private String[] types;
-	private float mood;
 	Random rnd = new Random();
 
 	public Pokemon(String name,
@@ -53,7 +52,4 @@ class Pokemon{
 		return name;
 	}
 
-	public double getMood(){
-		return this.mood;
-	}
 }
