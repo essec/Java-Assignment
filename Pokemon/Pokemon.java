@@ -1,3 +1,5 @@
+import java.util.*;
+
 class Pokemon{
 	private String name;
 	private float weight;
@@ -5,17 +7,19 @@ class Pokemon{
 	private int step;
 	private float gainingWeightStep;
 	private String[] types;
+	private float mood;
+	Random rnd = new Random();
 
 	public Pokemon(String name,
-			float weight,
 			float stepLength,
 			float gainingWeightStep,
 			String[] types){
 		this.name = name;
-		this.weight = weight;
-		this.stepLength = stepLength;
+		this.weight = rnd.nextInt(100)+1
+		this.stepLength = rnd.nextFloat(1)+0.1
 		this.gainingWeightStep = gainingWeightStep;
 		step = 0;
+		mood = rnd.nextFloat(1);
 
 		if(types == null)
 			this.types = new String[] {"normal"};
@@ -48,5 +52,9 @@ class Pokemon{
 
 	public String getName(){
 		return name;
+	}
+
+	public double getMood(){
+		return this.mood;
 	}
 }
