@@ -120,9 +120,9 @@ class CommandParser{
 			forest.catchPokemon(bag);
 		else if(choice.equals("No"))
 			forest.pokemonFound();
-		System.out.print("Want to go Home? ");
+		System.out.print("What do you do next? (Back / Catch) ");
 		choice = this.commandScanner.next();
-	    } while(!(choice.equals("goHome")));
+	    } while(!(choice.equals("Back")));
 
 
 
