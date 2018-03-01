@@ -47,7 +47,7 @@ class PokemonFarm{
 	public void push(ArrayList<Pokemon> fromBag){
 		for(Pokemon pokemon: fromBag){
 			addPokemon(pokemon);
-		System.out.print("Add Pokemon to Fram");
+		System.out.println("Add Pokemon to Fram");
 		}
 	}
 	

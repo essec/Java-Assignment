@@ -12,7 +12,7 @@ class CommandParser{
 	private Forest forest;
 	private Bag bag;
 
-	public CommandParser(PokemonFarm pokemonFarm, Bag bag){
+	public CommandParser(PokemonFarm pokemonFarm){
 		
 		this.pokemonFarm = pokemonFarm;
 		commandScanner = new Scanner(System.in);
@@ -107,17 +107,17 @@ class CommandParser{
 
 	private void goForest(){
 		bag = new Bag();
+		forest = new Forest();
 		String choice;
 		System.out.println("Welcome to Forest");
 		System.out.println("=================================================");
-		forest = new Forest();
 
 		do{
 		forest.pokemonFound();
 		System.out.print("Do you want to catch it? ");
 		choice = this.commandScanner.next();
 		if(choice.equals("yes"))
-			forest.catchPokemon();
+			forest.catchPokemon(bag);
 		else if(choice.equals("No"))
 			forest.pokemonFound();
 		System.out.print("Want to go Home? ");

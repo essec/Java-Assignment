@@ -9,7 +9,6 @@ class Forest{
 	private String name;
 
 	public Forest(){
-		bag = new Bag();
 	}
 	
 	public void pokemonFound(){
@@ -27,7 +26,7 @@ class Forest{
 		System.out.println("Found " + wildPokemon.getName() + "!!");
 	}
 
-	public void catchPokemon(){
+	public void catchPokemon(Bag bag){
 		
 		mood += 0.05;
 		ball = new Ball(random.nextInt(3));
